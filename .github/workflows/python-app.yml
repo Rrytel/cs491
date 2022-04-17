@@ -37,3 +37,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest batchSch.py tests.py
+    - name: Code coverage
+      run: |
+        pytest --cov batchSch tests.py
+
