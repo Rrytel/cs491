@@ -1,6 +1,6 @@
 # content of test_sample.py
 #from main import func,func2,func3
-from batchSchedulingComparison import AverageTurnaround,process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
+from batchSch import AverageTurnaround,process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
 #from main import func2
 
 #def test_answer():
