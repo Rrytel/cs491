@@ -4,6 +4,7 @@ Created on Wed Mar 16 17:27:49 2022
 @author: rytel
 FCFS is an algorithm that is only useful if we have all of the information from the start because it is a non preemptive algorithm meaning it cannot be interupted, this makes it the simplest to implement but the least versitile. Shortests job first only compares the burst times of currently available processes preemptively giving this algorithm the major advantage of having the lowest minimum waiting time and in turn lower avgerage waiting times. Priority sort is useful for a batch system that needs additional orgraniztion in the form of certian processes needing to be completed before others.
 """
+#
 import sys
 
 class process:
