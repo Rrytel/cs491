@@ -202,16 +202,13 @@ def setUpProcessArr(lines):
 	return arr
 
 def main():
-	avgTurnAroundTime = 0
-	avgWaitTime = 0
-	processArr = []
+	avgTurnAroundTime,avgWaitTime = 0,0
+	processArr,PAT,PCT,PTT,PBT,POE = [],[],[],[],[],[]
 	if (len(sys.argv)!= 3):
 	    print("Not enough arguments, please try again")
 	    sys.exit()
 	filename = sys.argv[1]
 	algorithm = sys.argv[2]
-
-
 	try:
 	    with open(filename) as f:
 	        lines = f.read()
@@ -221,34 +218,13 @@ def main():
 
 	processArr = setUpProcessArr(lines)
 	
-	#txt = lines.replace(" ","")
-	#txt = txt.split("\n")
-	#txt[0] = txt[0].split(",")
-	#txt[1] = txt[1].split(",")
-	#txt[2] = txt[2].split(",")
-	#txt[3] = txt[3].split(",")
-
-	#proc1 = process(int(txt[0][0]),int(txt[0][1]),int(txt[0][2]),int(txt[0][3]))
-	#proc2 = process(int(txt[1][0]),int(txt[1][1]),int(txt[1][2]),int(txt[1][3]))
-	#proc3 = process(int(txt[2][0]),int(txt[2][1]),int(txt[2][2]),int(txt[2][3]))
-	#proc4 = process(int(txt[3][0]),int(txt[3][1]),int(txt[3][2]),int(txt[3][3]))
-	#processArr.append(proc1)
-	#processArr.append(proc2)
-	#processArr.append(proc3)
-	#processArr.append(proc4)
-
-	PAT = []
-	PCT = []
-	PTT = []
-	PBT = []
-	POE = []
+	
 
 	for i in range(len(processArr)):
 	    PBT.append(processArr[i].burst)
     
 	for i in range(len(processArr)):
 	    PAT.append(processArr[i].arrival)
-
 
 	if algorithm == 'FCFS':
 	        POE,PCT = FirstComeFirstServedSort(processArr)
@@ -260,17 +236,14 @@ def main():
 		print("Enter FCFS, ShortestFirst, or Priority")
 		sys.exit()       
 
-
-
 	avgTurnAroundTime,PTT = averageTurnaround(PCT, PAT)
 	avgTurnAroundTime = "{:.2f}".format(avgTurnAroundTime)
 	avgWaitTime = averageWait(PTT,PBT)
 
-	print("Process order of execution: ", POE)
+	print("Process order of execution: ", POE, "\nAverage turn around time: ", avgTurnAroundTime, "\nAverage wait time: ", avgWaitTime)
 
-	print("Average turn around time: ",avgTurnAroundTime)
-
-	print("Average wait time: ", avgWaitTime)
+	#print("Average turn around time: ",avgTurnAroundTime)
+	#print("Average wait time: ", avgWaitTime)
 	
 	
 	
