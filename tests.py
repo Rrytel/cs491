@@ -13,6 +13,7 @@ def test_process_creation_for_correct_arrival_time():
 	
 def test_find_min_FCFS_first_run():
 	processArr = []
+	curTime = 0.00
 	proc1 = process(1,0,20,2)
 	proc2 = process(3,0,50,1)
 	proc3 = process(7,9,4,3)
@@ -27,11 +28,11 @@ def test_find_min_FCFS_first_run():
 			break
 	for i in range(len(processArr)):
 		if(processArr[i].arrival < processArr[min].arrival and processArr[i].arrival<=curTime and processArr[i].complete==False):
-		min = i
+			min = i
 
 	for i in range(len(processArr)):
 		if(processArr[i].arrival == processArr[min].arrival and processArr[i].pid < processArr[min].pid and processArr[i].complete==False):
-	min = i
+			min = i
                 
 	assert min == 0
 	
