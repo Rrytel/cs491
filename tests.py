@@ -1,6 +1,6 @@
 # content of test_sample.py
 #from main import func,func2,func3
-from batchSch import AverageTurnaround,process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
+from batchSch import process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
 
 	
 def test_process_creation():
