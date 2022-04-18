@@ -22,19 +22,16 @@ def test_find_min_FCFS_first_run():
 	processArr.append(proc3)
 	processArr.append(proc4)
 	for i in range(len(processArr)):
-            if(processArr[i].complete==False and processArr[i].arrival<=curTime):
-                min = i
-                #print("Initial min: ", min)
-                break
-        
-        for i in range(len(processArr)):
-            if(processArr[i].arrival < processArr[min].arrival and processArr[i].arrival<=curTime and processArr[i].complete==False):
-                min = i
-                #print("Min changed to :", min)
-                
-        for i in range(len(processArr)):
-            if(processArr[i].arrival == processArr[min].arrival and processArr[i].pid < processArr[min].pid and processArr[i].complete==False):
-                min = i
+		if(processArr[i].complete==False and processArr[i].arrival<=curTime):
+			min = i
+			break
+	for i in range(len(processArr)):
+		if(processArr[i].arrival < processArr[min].arrival and processArr[i].arrival<=curTime and processArr[i].complete==False):
+		min = i
+
+	for i in range(len(processArr)):
+		if(processArr[i].arrival == processArr[min].arrival and processArr[i].pid < processArr[min].pid and processArr[i].complete==False):
+	min = i
                 
 	assert min == 0
 	
