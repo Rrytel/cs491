@@ -14,7 +14,7 @@ class process:
         self.burst = z
         self.complete = False
         self.completionTime = 0.0
-        self.waitingTIme = 0
+        self.waitingTime = 0
         self.priority = i
         
         
@@ -55,7 +55,7 @@ def FirstComeFirstServedSort(processArr):
             
         for i in range(len(processArr)):    
             if(processArr[i].complete==False):
-                processArr[i].waitingTIme +=1
+                processArr[i].waitingTime +=1
                 
         curTime +=1
         #print(numCompleted)
@@ -100,7 +100,7 @@ def shortestJobNext(processArr):
     
         for i in range(len(processArr)):    
             if(processArr[i].complete==False):
-                processArr[i].waitingTIme +=1
+                processArr[i].waitingTime +=1
         
         #print(min,curTime,processArr[min].burst)
         curTime +=1
@@ -151,7 +151,7 @@ def PrioritySort(processArr):
             
         for i in range(len(processArr)):    
             if(processArr[i].complete==False):
-                processArr[i].waitingTIme +=1
+                processArr[i].waitingTime +=1
                 
         curTime +=1
         #print(numCompleted)
@@ -181,7 +181,25 @@ def averageWait(PTT,PBT):
     	temp = (PTT[i]-PBT[i])
     	avg += temp
     return (avg/(i+1))
-    
+   
+   
+def setUpProcessArr(lines):
+	arr = []
+	txt = lines.replace(" ","")
+	txt = txt.split("\n")
+	txt[0] = txt[0].split(",")
+	txt[1] = txt[1].split(",")
+	txt[2] = txt[2].split(",")
+	txt[3] = txt[3].split(",")
+	proc1 = process(int(txt[0][0]),int(txt[0][1]),int(txt[0][2]),int(txt[0][3]))
+	proc2 = process(int(txt[1][0]),int(txt[1][1]),int(txt[1][2]),int(txt[1][3]))
+	proc3 = process(int(txt[2][0]),int(txt[2][1]),int(txt[2][2]),int(txt[2][3]))
+	proc4 = process(int(txt[3][0]),int(txt[3][1]),int(txt[3][2]),int(txt[3][3]))
+	arr.append(proc1)
+	arr.append(proc2)
+	arr.append(proc3)
+	arr.append(proc4)
+	return arr
 
 def main():
 	avgTurnAroundTime = 0
@@ -201,27 +219,23 @@ def main():
 	    print("Failed to read file")
 	    sys.exit()
 
-#with open(filename) as f:
-    #lines = f.read()
-    
+	processArr = setUpProcessArr(lines)
+	
+	#txt = lines.replace(" ","")
+	#txt = txt.split("\n")
+	#txt[0] = txt[0].split(",")
+	#txt[1] = txt[1].split(",")
+	#txt[2] = txt[2].split(",")
+	#txt[3] = txt[3].split(",")
 
-	txt = lines.replace(" ","")
-	txt = txt.split("\n")
-	txt[0] = txt[0].split(",")
-	txt[1] = txt[1].split(",")
-	txt[2] = txt[2].split(",")
-	txt[3] = txt[3].split(",")
-#print("Batch file data: ")
-#print(txt)
-
-	proc1 = process(int(txt[0][0]),int(txt[0][1]),int(txt[0][2]),int(txt[0][3]))
-	proc2 = process(int(txt[1][0]),int(txt[1][1]),int(txt[1][2]),int(txt[1][3]))
-	proc3 = process(int(txt[2][0]),int(txt[2][1]),int(txt[2][2]),int(txt[2][3]))
-	proc4 = process(int(txt[3][0]),int(txt[3][1]),int(txt[3][2]),int(txt[3][3]))
-	processArr.append(proc1)
-	processArr.append(proc2)
-	processArr.append(proc3)
-	processArr.append(proc4)
+	#proc1 = process(int(txt[0][0]),int(txt[0][1]),int(txt[0][2]),int(txt[0][3]))
+	#proc2 = process(int(txt[1][0]),int(txt[1][1]),int(txt[1][2]),int(txt[1][3]))
+	#proc3 = process(int(txt[2][0]),int(txt[2][1]),int(txt[2][2]),int(txt[2][3]))
+	#proc4 = process(int(txt[3][0]),int(txt[3][1]),int(txt[3][2]),int(txt[3][3]))
+	#processArr.append(proc1)
+	#processArr.append(proc2)
+	#processArr.append(proc3)
+	#processArr.append(proc4)
 
 	PAT = []
 	PCT = []
@@ -253,7 +267,11 @@ def main():
 	avgWaitTime = averageWait(PTT,PBT)
 
 	print("Process order of execution: ", POE)
-#print(PCT)
+
 	print("Average turn around time: ",avgTurnAroundTime)
-#print(PTT)
+
 	print("Average wait time: ", avgWaitTime)
+	
+	
+	
+main()
