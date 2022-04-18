@@ -245,6 +245,6 @@ def main():
 	#print("Average turn around time: ",avgTurnAroundTime)
 	#print("Average wait time: ", avgWaitTime)
 	
-	
-	
-#main()
+
+if __name__ == '__main__':
+	main()
