@@ -3,13 +3,40 @@
 from batchSch import process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
 
 	
-def test_process_creation():
+def test_process_creation_for_correct_pid():
 	proc1 = process(1,2,3,4)
 	assert proc1.pid ==1
 	
-def test_process_creation():
+def test_process_creation_for_correct_arrival_time():
 	proc1 = process(1,2,3,4)
 	assert proc1.arrival ==2
+	
+def test_find_min_FCFS_first_run():
+	processArr = []
+	proc1 = process(1,0,20,2)
+	proc2 = process(3,0,50,1)
+	proc3 = process(7,9,4,3)
+	proc4 = process(2,10,12,4)
+	processArr.append(proc1)
+	processArr.append(proc2)
+	processArr.append(proc3)
+	processArr.append(proc4)
+	for i in range(len(processArr)):
+            if(processArr[i].complete==False and processArr[i].arrival<=curTime):
+                min = i
+                #print("Initial min: ", min)
+                break
+        
+        for i in range(len(processArr)):
+            if(processArr[i].arrival < processArr[min].arrival and processArr[i].arrival<=curTime and processArr[i].complete==False):
+                min = i
+                #print("Min changed to :", min)
+                
+        for i in range(len(processArr)):
+            if(processArr[i].arrival == processArr[min].arrival and processArr[i].pid < processArr[min].pid and processArr[i].complete==False):
+                min = i
+                
+	assert min == 0
 	
 def test_FCFS_sort():
 	avgTurnAroundTime = 0
