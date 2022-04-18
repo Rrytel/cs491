@@ -1,19 +1,7 @@
 # content of test_sample.py
 #from main import func,func2,func3
 from batchSch import AverageTurnaround,process,FirstComeFirstServedSort,shortestJobNext,PrioritySort
-#from main import func2
 
-#def test_answer():
-    #assert func(3) == 5
-    
-#def test_2():
-	#assert func2(5) == 10
-	
-#def test_3():
-	#assert func3(5)==10
-
-def test_batch():
-	assert AverageTurnaround(1,0) == True
 	
 def test_process_creation():
 	proc1 = process(1,2,3,4)

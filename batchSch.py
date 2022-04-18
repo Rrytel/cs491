@@ -17,8 +17,6 @@ class process:
         self.waitingTIme = 0
         self.priority = i
         
-def AverageTurnaround(PCT,PAT):
-    return True
         
         
 def FirstComeFirstServedSort(processArr):
