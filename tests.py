@@ -36,6 +36,24 @@ def test_find_min_FCFS_first_run():
                 
 	assert min == 0
 	
+def test_processes_are_set_as_complete_corectly_after_sorting():
+	processArr = []
+	curTime = 5.00
+	proc1 = process(1,0,20,2)
+	proc2 = process(3,0,0,1)
+	proc3 = process(7,9,4,3)
+	proc4 = process(2,10,12,4)
+	processArr.append(proc1)
+	processArr.append(proc2)
+	processArr.append(proc3)
+	processArr.append(proc4)
+	min = 1
+	if(processArr[min].burst<=0):
+		processArr[min].complete = True
+		processArr[min].completionTime = curTime + 1
+		
+	assert processArr[1].complete ==True and processArr[1].completionTime == 6.00
+	
 def test_FCFS_sort():
 	avgTurnAroundTime = 0
 	avgWaitTime = 0
