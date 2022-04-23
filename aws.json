@@ -22,6 +22,7 @@
         {
           "hostPort": 80,
           "protocol": "tcp",
+          "hostPort": 3000,
           "containerPort": 80,
           "containerPort" : 3000
         }
