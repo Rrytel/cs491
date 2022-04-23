@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM alpine:3.15
 ENV PROJECT_DIR = /src
 WORKDIR /src
 COPY . .
