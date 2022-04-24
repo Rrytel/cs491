@@ -25,10 +25,7 @@
         }
       ],
       "essential": true,
-         "entryPoint": [
-                "sh",
-                "-c"
-            ],
+         
             "command": [
                 "list-container-instances"
             ],
