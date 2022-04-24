@@ -27,7 +27,7 @@
       "essential": true,
          
             "command": [
-                "docker","logs","sample-app"
+                "echo","deployed"
             ],
       
       "linuxParameters": null,
