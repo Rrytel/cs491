@@ -16,6 +16,6 @@ RUN set -eux; \
 COPY batchSch.py batchSch.py
 COPY batch.txt batch.txt
 #RUN pip install --no-cache-dir -r requirements.txt
-#ENTRYPOINT ["./src/main.py"]
-CMD ["python3","batchSch.py"]
+#ENTRYPOINT ["./src/main.py"]python3 batchSch.py batch.txt FCFS
+CMD ["python3","batchSch.py", "batch.txt","FCFS"]
 #CMD ["echo", "hello-world"]
