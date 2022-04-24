@@ -1,6 +1,6 @@
 FROM alpine:3.15
 #ENV PROJECT_DIR = /src
-WORKDIR /src
+#WORKDIR /src
 COPY batchSch.py batchSch.py
 
 
