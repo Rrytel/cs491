@@ -27,7 +27,7 @@
       "essential": true,
          
             "command": [
-                "list-container-instances"
+                "python","batchSch.py"
             ],
       
       "linuxParameters": null,
