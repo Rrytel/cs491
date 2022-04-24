@@ -30,7 +30,7 @@
                 "-c"
             ],
             "command": [
-                "python batchSch.py"
+                "list-container-instances"
             ],
       
       "linuxParameters": null,
