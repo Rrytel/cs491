@@ -27,7 +27,7 @@
       "essential": true,
          
             "command": [
-                "echo", "this is a test"
+                "batchSch.py"
             ],
       
       "linuxParameters": null,
