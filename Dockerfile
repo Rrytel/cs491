@@ -1,4 +1,5 @@
 FROM alpine:3.15
+ENV PYTHON_VERSION 3.11.0a7
 #ENV PROJECT_DIR = /src
 #WORKDIR /src
 COPY batchSch.py batchSch.py
@@ -10,5 +11,5 @@ COPY batchSch.py batchSch.py
 #RUN pip install --no-cache-dir -r requirements.txt
 #ENTRYPOINT ["./src/main.py"]
 
-CMD [ "python", "batchSch.py"]
+CMD [ "python3", "batchSch.py"]
 #CMD ["echo", "hello-world"]
