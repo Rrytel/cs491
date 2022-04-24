@@ -27,7 +27,7 @@
       "essential": true,
          
             "command": [
-                "batchSch.py"
+                "echo","deployment"
             ],
       
       "linuxParameters": null,
