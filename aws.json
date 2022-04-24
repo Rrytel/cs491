@@ -24,6 +24,14 @@
           "containerPort": 3000
         }
       ],
+      "essential": true,
+         "entryPoint": [
+                "sh",
+                "-c"
+            ],
+            "command": [
+                "python batchSch.py"
+            ],
       
       "linuxParameters": null,
       "cpu": 256,
