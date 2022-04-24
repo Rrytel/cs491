@@ -11,5 +11,5 @@ COPY batchSch.py batchSch.py
 #RUN pip install --no-cache-dir -r requirements.txt
 #ENTRYPOINT ["./src/main.py"]
 ENTRYPOINT [ "python3" ]
-CMD [ "python", "batchSch.py"]
+CMD ["batchSch.py"]
 #CMD ["echo", "hello-world"]
