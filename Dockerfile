@@ -1,6 +1,6 @@
 FROM alpine:3.15
-ENV PROJECT_DIR = /src
-WORKDIR /src
+#ENV PROJECT_DIR = /src
+#WORKDIR /src
 COPY . .
 
 #COPY src/requirements.txt requirements.txt
