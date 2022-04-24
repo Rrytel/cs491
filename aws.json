@@ -14,10 +14,10 @@
           "awslogs-stream-prefix": "ecs"
         }
       },
-      "entryPoint": [
-        "sh",
-        "-c"
-      ],
+      //"entryPoint": [
+      //  "sh",
+      //  "-c"
+     // ],
       "portMappings": [
         {
           "hostPort": 80,
