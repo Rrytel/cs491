@@ -121,18 +121,30 @@ def test_the_process_array_is_set_up_correctly_given_valid_text_input():
 	assert processArr[0].burst == 20 and processArr[1].pid == 3 and processArr[2].priority == 3 and processArr[3].arrival == 10
 	
 def test_average_turn_around_calculations():
-	PCT = [70]
-	PAT = [50]
-	averageTurnaround(PCT,PAT)
-	assert True
+	PCT = [70,40,80,100]
+	PAT = [50,15,25,60]
+	PTT = []
+	temp = 0
+	temp,PTT = averageTurnaround(PCT,PAT)
+	assert temp == 35
 	
 def test_average_wait_calculations():
-	PTT = [50]
-	PBT = [30]
-	averageWait(PTT,PBT)
-	assert True
+	PTT = [20,40,80,120]
+	PBT = [10,20,40,80]
+	temp = averageWait(PTT,PBT)
+	assert temp ==27.5
 	
-def test_integration_of_process_array_creation_followed_by_FCFS_sort():
+def test_average_wait_integration_with_avg_turn_around():
+	ATT = 0
+	PCT =[70,40,80,100]
+	PAT =[50,15,25,60]
+	PTT=[]
+	PBT=[5,12,6,17]
+	ATT,PTT = averageTurnaround(PCT,PAT)
+	AWT = averageWait(PTT,PBT)
+	assert AWT == 25
+	
+def test_resluting_POE_array_with_integration_of_process_array_creation_followed_by_FCFS_sort():
 	avgTurnAroundTime = 0
 	avgWaitTime = 0
 	processArr = []
@@ -146,7 +158,21 @@ def test_integration_of_process_array_creation_followed_by_FCFS_sort():
 	POE,PCT=FirstComeFirstServedSort(processArr)
 	assert POE == [1,3,7,2]
 	
-def test_integration_of_process_array_creation_followed_by_SJF_sort():
+def test_resluting_PCT_array_with_integration_of_process_array_creation_followed_by_FCFS_sort():
+	avgTurnAroundTime = 0
+	avgWaitTime = 0
+	processArr = []
+	PAT = []
+	PCT = []
+	PTT = []
+	PBT = []
+	POE = []
+	lines = "1, 0, 20, 2\n3, 0, 50, 1\n7, 9, 4, 3\n2, 10, 12, 4"
+	processArr = setUpProcessArr(lines)
+	POE,PCT=FirstComeFirstServedSort(processArr)
+	assert PCT == [20.0,70.0,74.0,86.0]
+	
+def test_resluting_POE_array_with_integration_of_process_array_creation_followed_by_SJF_sort():
 	avgTurnAroundTime = 0
 	avgWaitTime = 0
 	processArr = []
@@ -160,7 +186,21 @@ def test_integration_of_process_array_creation_followed_by_SJF_sort():
 	POE,PCT=shortestJobNext(processArr)
 	assert POE == [1,7,1,2,3]
 	
-def test_integration_of_process_array_creation_followed_by_priorty_sort():
+def test_resluting_PCT_array_with_integration_of_process_array_creation_followed_by_SJF_sort():
+	avgTurnAroundTime = 0
+	avgWaitTime = 0
+	processArr = []
+	PAT = []
+	PCT = []
+	PTT = []
+	PBT = []
+	POE = []
+	lines = "1, 0, 20, 2\n3, 0, 50, 1\n7, 9, 4, 3\n2, 10, 12, 4"
+	processArr = setUpProcessArr(lines)
+	POE,PCT=shortestJobNext(processArr)
+	assert PCT == [24.0,86.0,13.0,36.0]
+	
+def test_resluting_POE_array_with_integration_of_process_array_creation_followed_by_priorty_sort():
 	avgTurnAroundTime = 0
 	avgWaitTime = 0
 	processArr = []
@@ -173,4 +213,18 @@ def test_integration_of_process_array_creation_followed_by_priorty_sort():
 	processArr = setUpProcessArr(lines)
 	POE,PCT=PrioritySort(processArr)
 	assert POE == [3,1,7,2]
+	
+def test_resluting_PCT_array_with_integration_of_process_array_creation_followed_by_priorty_sort():
+	avgTurnAroundTime = 0
+	avgWaitTime = 0
+	processArr = []
+	PAT = []
+	PCT = []
+	PTT = []
+	PBT = []
+	POE = []
+	lines = "1, 0, 20, 2\n3, 0, 50, 1\n7, 9, 4, 3\n2, 10, 12, 4"
+	processArr = setUpProcessArr(lines)
+	POE,PCT=PrioritySort(processArr)
+	assert PCT == [70.0,50.0,74.0,86.0]
 	
